@@ -15,9 +15,11 @@ export const Home = (props: Props): ReactElement => {
   }, []);
   return (
     <>
-      {jobPostings.map((jobPosting) => {
-        return <JobListItem key={jobPosting.id} jobPosting={jobPosting} />;
-      })}
+      <ul>
+        {jobPostings.map((jobPosting) => {
+          return <JobListItem key={jobPosting.id} jobPosting={jobPosting} />;
+        })}
+      </ul>
     </>
   );
 };
