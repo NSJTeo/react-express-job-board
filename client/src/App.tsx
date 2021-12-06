@@ -1,5 +1,13 @@
-function App() {
-  return null;
+import { ReactElement } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+
+function App(): ReactElement {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  );
 }
 
 export default App;
