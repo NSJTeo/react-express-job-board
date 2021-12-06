@@ -13,8 +13,14 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.static("public"));
 app.use(express_1.default.json());
 app.get("/", (_req, res) => {
-    const data = fs_1.default.readFileSync("./data/data.json", "utf-8");
-    res.send(data);
+    const jobs = fs_1.default.readFileSync("./data/data.json", "utf-8");
+    res.send(jobs);
+});
+app.get("/jobs/:jobID", (req, res) => {
+    const jobs = fs_1.default.readFileSync("./data/data.json", "utf-8");
+    const parsedJobs = JSON.parse(jobs);
+    const jobPosting = parsedJobs.find((parsedJob) => parsedJob.id.toString() === req.params.jobID);
+    res.send(jobPosting);
 });
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
