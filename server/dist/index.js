@@ -6,9 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv").config();
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
+const fs_1 = __importDefault(require("fs"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 8000;
 app.use((0, cors_1.default)());
+app.get("/", (_req, res) => {
+    const data = fs_1.default.readFileSync("./data/data.json", "utf-8");
+    res.send(data);
+});
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
