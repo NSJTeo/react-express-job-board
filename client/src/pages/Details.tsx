@@ -2,6 +2,7 @@ import React, { ReactElement, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { JobPosting } from "../types/types";
 import axios from "axios";
+import { CompanyInfo } from "../components/CompanyInfo/CompanyInfo";
 
 export const Details = (): ReactElement => {
   const [jobDetails, setJobDetails] = useState<JobPosting>();
@@ -20,11 +21,12 @@ export const Details = (): ReactElement => {
 
   return (
     <>
+      <CompanyInfo jobDetails={jobDetails} />
       <p>{jobDetails.postedAt}</p>
       <p>{jobDetails.contract}</p>
       <h1>{jobDetails.position}</h1>
       <p>{jobDetails.location}</p>
-      <button>Apply Now</button>
+      <a href={jobDetails.website + "/apply"}>Apply Now</a>
       <p>{jobDetails.description}</p>
       <h2>Requirements</h2>
       <p>{jobDetails.requirements.content}</p>
@@ -40,7 +42,7 @@ export const Details = (): ReactElement => {
           return <li>{item}</li>;
         })}
       </ul>
-      <button>Apply Now</button>
+      <a href={jobDetails.website + "/apply"}>Apply Now</a>
     </>
   );
 };
