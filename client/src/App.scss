@@ -1,0 +1,10 @@
+@import "./styles/variables.scss";
+
+.app {
+  &__container {
+    padding: 0 1.5rem;
+    background-color: $light-gray;
+  }
+  &__main-section {
+  }
+}
