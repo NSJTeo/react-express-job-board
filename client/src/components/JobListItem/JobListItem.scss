@@ -1,9 +1,12 @@
+@use "../../styles/variables.scss" as *;
+
 .job-list-item {
   &__container {
     margin-bottom: 1.5rem;
   }
   &__time-contract-container {
     display: flex;
+    margin-bottom: 1rem;
   }
   &__logo-container {
     width: 3.125rem;
@@ -12,5 +15,33 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
+    position: relative;
+    top: 25px;
+    left: 2rem;
+  }
+  &__banner-container {
+    display: flex;
+  }
+  &__banner {
+    height: 25px;
+    background-color: $light-gray;
+  }
+  &__info-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    padding-top: 49px;
+    border-radius: 6px;
+  }
+  &__info-job-container {
+    margin-bottom: 1rem;
+  }
+  &__company {
+    margin-bottom: 2.75rem;
+  }
+  &__time-contract-dot {
+    margin: 0 0.75rem;
   }
 }

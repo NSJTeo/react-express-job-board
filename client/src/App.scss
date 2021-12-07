@@ -2,9 +2,11 @@
 
 .app {
   &__container {
-    padding: 0 1.5rem;
-    background-color: $light-gray;
+    // padding: 0 1.5rem;
+    // background-color: $light-gray;
   }
   &__main-section {
+    padding: 0 1.5rem;
+    background-color: $light-gray;
   }
 }
