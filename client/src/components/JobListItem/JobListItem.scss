@@ -7,6 +7,7 @@
   &__time-contract-container {
     display: flex;
     margin-bottom: 1rem;
+    color: $dark-grey;
   }
   &__logo-container {
     width: 3.125rem;
@@ -24,7 +25,7 @@
   }
   &__banner {
     height: 25px;
-    background-color: $light-gray;
+    background-color: $light-grey;
   }
   &__info-container {
     background-color: white;
@@ -40,8 +41,17 @@
   }
   &__company {
     margin-bottom: 2.75rem;
+    color: $dark-grey;
   }
   &__time-contract-dot {
     margin: 0 0.75rem;
+  }
+  &__position {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #19202d;
+  }
+  &__location {
+    color: #5964e0;
   }
 }

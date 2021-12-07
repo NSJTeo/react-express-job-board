@@ -32,7 +32,12 @@ export const JobListItem = ({ jobPosting }: Props): ReactElement => {
             <p className="job-list-item__time-contract-dot">&bull;</p>
             <p>{jobPosting.contract}</p>
           </div>
-          <Link to={`/job/` + jobPosting.id}>{jobPosting.position}</Link>
+          <Link
+            to={`/job/` + jobPosting.id}
+            className="job-list-item__position"
+          >
+            {jobPosting.position}
+          </Link>
         </div>
         <div className="job-list-item__company-location-container">
           <p className="job-list-item__company">{jobPosting.company}</p>
