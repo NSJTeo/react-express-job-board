@@ -4,11 +4,10 @@ import { JobPosting } from "../../types/types";
 import { JobListItem } from "../../components/JobListItem/JobListItem";
 import "./Home.scss";
 
-interface Props {}
-
-export const Home = (props: Props): ReactElement => {
+export const Home = (): ReactElement => {
   const [jobPostings, setJobPostings] = useState<JobPosting[]>([]);
   const [jobPostingsAmount, setJobPostingsAmount] = useState<number>(12);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     axios.get("http://localhost:8080/").then((response) => {
@@ -20,7 +19,15 @@ export const Home = (props: Props): ReactElement => {
     setJobPostingsAmount(jobPostingsAmount + 12);
   };
 
-  const listings = jobPostings.slice(0, jobPostingsAmount);
+  const handleFilterChange = (e: any) => {
+    e.preventDefault();
+    setFilter(e.target.value.toLowerCase());
+  };
+
+  let listings: JobPosting[] = jobPostings.filter((jobPosting) =>
+    jobPosting.position.toLowerCase().startsWith(filter)
+  );
+  listings = listings.slice(0, jobPostingsAmount);
 
   return (
     <main className="home">
@@ -29,6 +36,8 @@ export const Home = (props: Props): ReactElement => {
           <input
             placeholder="Filter by title..."
             className="home__title-input"
+            value={filter}
+            onChange={(e) => handleFilterChange(e)}
           />
           <div className="home__filter-icon-button-container">
             <img
