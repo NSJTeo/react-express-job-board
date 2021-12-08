@@ -10,3 +10,9 @@
   text-decoration: none;
   font-family: "KumbhSans";
 }
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}

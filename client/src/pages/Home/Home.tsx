@@ -3,11 +3,13 @@ import axios from "axios";
 import { JobPosting } from "../../types/types";
 import { JobListItem } from "../../components/JobListItem/JobListItem";
 import "./Home.scss";
+import { SearchModal } from "../../components/SearchModal/SearchModal";
 
 export const Home = (): ReactElement => {
   const [jobPostings, setJobPostings] = useState<JobPosting[]>([]);
   const [jobPostingsAmount, setJobPostingsAmount] = useState<number>(12);
-  const [filter, setFilter] = useState("");
+  const [titleFilter, setTitleFilter] = useState("");
+  const [searchModal, setSearchModal] = useState(false);
 
   useEffect(() => {
     axios.get("http://localhost:8080/").then((response) => {
@@ -19,32 +21,40 @@ export const Home = (): ReactElement => {
     setJobPostingsAmount(jobPostingsAmount + 12);
   };
 
-  const handleFilterChange = (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    setFilter(e.target.value.toLowerCase());
+    setTitleFilter(e.target.title.value);
   };
 
   let listings: JobPosting[] = jobPostings.filter((jobPosting) =>
-    jobPosting.position.toLowerCase().startsWith(filter)
+    jobPosting.position.toLowerCase().startsWith(titleFilter)
   );
+  const hiddenPostings = listings.length > jobPostingsAmount;
   listings = listings.slice(0, jobPostingsAmount);
 
   return (
     <main className="home">
+      {searchModal ? <SearchModal setSearchModal={setSearchModal} /> : null}
       <div className="home__filter-container">
-        <form className="home__form">
+        <form className="home__form" onSubmit={(e) => handleSubmit(e)}>
           <input
             placeholder="Filter by title..."
             className="home__title-input"
-            value={filter}
-            onChange={(e) => handleFilterChange(e)}
+            name="title"
           />
           <div className="home__filter-icon-button-container">
-            <img
-              src="http://localhost:8080/assets/icons/icon-filter.svg"
-              alt=""
-            />
-            <button className="home__search-button">
+            <button
+              type="button"
+              onClick={() => {
+                setSearchModal(true);
+              }}
+            >
+              <img
+                src="http://localhost:8080/assets/icons/icon-filter.svg"
+                alt=""
+              />
+            </button>
+            <button type="submit" className="home__search-button">
               <img
                 src="http://localhost:8080/assets/icons/icon-search-mobile.svg"
                 alt=""
@@ -59,9 +69,11 @@ export const Home = (): ReactElement => {
           return <JobListItem key={jobPosting.id} jobPosting={jobPosting} />;
         })}
       </ul>
-      <button className="home__load-more-button" onClick={handleClick}>
-        Load More
-      </button>
+      {hiddenPostings ? (
+        <button className="home__load-more-button" onClick={handleClick}>
+          Load More
+        </button>
+      ) : null}
     </main>
   );
 };

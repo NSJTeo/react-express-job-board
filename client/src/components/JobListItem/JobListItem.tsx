@@ -8,7 +8,6 @@ interface Props {
 }
 
 export const JobListItem = ({ jobPosting }: Props): ReactElement => {
-  console.log(jobPosting);
   return (
     <li className="job-list-item__container">
       <div className="job-list-item__banner-container">

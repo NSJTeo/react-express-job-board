@@ -1,0 +1,19 @@
+.search-modal {
+  margin: 1.5rem;
+  background-color: white;
+  width: 100%;
+  height: 20.4375rem;
+  border-radius: 6px;
+  &__background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.2);
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
