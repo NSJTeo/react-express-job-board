@@ -43,6 +43,7 @@ export const Home = (props: Props): ReactElement => {
           return <JobListItem key={jobPosting.id} jobPosting={jobPosting} />;
         })}
       </ul>
+      <button className="home__load-more-button">Load More</button>
     </main>
   );
 };
