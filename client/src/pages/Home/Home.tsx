@@ -8,12 +8,19 @@ interface Props {}
 
 export const Home = (props: Props): ReactElement => {
   const [jobPostings, setJobPostings] = useState<JobPosting[]>([]);
+  const [jobPostingsAmount, setJobPostingsAmount] = useState<number>(12);
 
   useEffect(() => {
     axios.get("http://localhost:8080/").then((response) => {
       setJobPostings(response.data);
     });
   }, []);
+
+  const handleClick = () => {
+    setJobPostingsAmount(jobPostingsAmount + 12);
+  };
+
+  const listings = jobPostings.slice(0, jobPostingsAmount);
 
   return (
     <main className="home">
@@ -39,11 +46,13 @@ export const Home = (props: Props): ReactElement => {
         </form>
       </div>
       <ul className="home__job-list">
-        {jobPostings.map((jobPosting) => {
+        {listings.map((jobPosting) => {
           return <JobListItem key={jobPosting.id} jobPosting={jobPosting} />;
         })}
       </ul>
-      <button className="home__load-more-button">Load More</button>
+      <button className="home__load-more-button" onClick={handleClick}>
+        Load More
+      </button>
     </main>
   );
 };
