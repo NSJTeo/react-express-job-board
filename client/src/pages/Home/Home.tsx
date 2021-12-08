@@ -16,13 +16,33 @@ export const Home = (props: Props): ReactElement => {
   }, []);
 
   return (
-    <>
-      <div className="home__filter-container"></div>
+    <main className="home">
+      <div className="home__filter-container">
+        <form className="home__form">
+          <input
+            placeholder="Filter by title..."
+            className="home__title-input"
+          />
+          <div className="home__filter-icon-button-container">
+            <img
+              src="http://localhost:8080/assets/icons/icon-filter.svg"
+              alt=""
+            />
+            <button className="home__search-button">
+              <img
+                src="http://localhost:8080/assets/icons/icon-search-mobile.svg"
+                alt=""
+                className="home__search-icon"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
       <ul className="home__job-list">
         {jobPostings.map((jobPosting) => {
           return <JobListItem key={jobPosting.id} jobPosting={jobPosting} />;
         })}
       </ul>
-    </>
+    </main>
   );
 };

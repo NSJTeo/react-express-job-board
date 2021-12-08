@@ -1,15 +1,56 @@
 @import "../../styles/variables.scss";
 
 .home {
+  background-color: $light-grey;
+  position: relative;
+  padding: 0 1.5rem;
   &__filter-container {
     height: 5rem;
     background-color: white;
-    margin: 0 1.5rem;
-    margin-top: -2.5rem;
+    // margin: 0 1.5rem;
+    // margin-top: -2.5rem;
     border-radius: 6px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: -2.5rem;
+    right: 1.5rem;
+    left: 1.5rem;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    width: auto;
   }
   &__job-list {
-    padding: 0 1.5rem;
     background-color: $light-grey;
+    padding-top: 2.9375rem;
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  &__search-button {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1.5rem;
+    border: none;
+  }
+  &__search-icon {
+    width: 1.75rem;
+  }
+  &__title-input {
+    border: none;
+    flex-grow: 1;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__filter-icon-button-container {
+    display: flex;
+    align-items: center;
   }
 }
