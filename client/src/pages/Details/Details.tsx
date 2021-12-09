@@ -23,26 +23,38 @@ export const Details = (): ReactElement => {
   return (
     <main className="details">
       <CompanyInfo jobDetails={jobDetails} />
-      <p>{jobDetails.postedAt}</p>
-      <p>{jobDetails.contract}</p>
-      <h1>{jobDetails.position}</h1>
-      <p>{jobDetails.location}</p>
-      <a href={jobDetails.website + "/apply"}>Apply Now</a>
-      <p>{jobDetails.description}</p>
-      <h2>Requirements</h2>
-      <p>{jobDetails.requirements.content}</p>
-      <ul>
-        {jobDetails.requirements.items.map((item) => {
-          return <li>{item}</li>;
-        })}
-      </ul>
-      <h2>What You Will Do</h2>
-      <p>{jobDetails.role.content}</p>
-      <ul>
-        {jobDetails.role.items.map((item) => {
-          return <li>{item}</li>;
-        })}
-      </ul>
+      <div className="details__job-info-container">
+        <div className="details__date-contract-container">
+          <p>{jobDetails.postedAt}</p>
+          <div className="details__date-contract-dot"></div>
+          <p>{jobDetails.contract}</p>
+        </div>
+        <h1 className="details__position">{jobDetails.position}</h1>
+        <p className="details__location">{jobDetails.location}</p>
+        <a
+          href={jobDetails.website + "/apply"}
+          className="details__apply-now-link"
+        >
+          Apply Now
+        </a>
+        <p className="details__description">{jobDetails.description}</p>
+        <h2 className="details__requirements-title">Requirements</h2>
+        <p className="details__requirements">
+          {jobDetails.requirements.content}
+        </p>
+        <ul>
+          {jobDetails.requirements.items.map((item) => {
+            return <li>{item}</li>;
+          })}
+        </ul>
+        <h2>What You Will Do</h2>
+        <p>{jobDetails.role.content}</p>
+        <ul>
+          {jobDetails.role.items.map((item) => {
+            return <li>{item}</li>;
+          })}
+        </ul>
+      </div>
       <a href={jobDetails.website + "/apply"}>Apply Now</a>
     </main>
   );
