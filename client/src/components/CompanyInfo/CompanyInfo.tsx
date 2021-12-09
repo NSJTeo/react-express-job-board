@@ -10,18 +10,25 @@ export const CompanyInfo = ({ jobDetails }: Props) => {
   return (
     <>
       <div className="company-info__container">
-        <img
-          src={`http://localhost:8080` + jobDetails.logo.slice(1)}
-          alt=""
-          className="company-info__logo"
-        />
+        <div
+          className="company-info__logo-container"
+          style={{ backgroundColor: jobDetails.logoBackground }}
+        >
+          <img
+            src={`http://localhost:8080` + jobDetails.logo.slice(1)}
+            alt=""
+            className="company-info__logo"
+          />
+        </div>
         <p className="company-info__name">{jobDetails.company}</p>
         <p className="company-info__website">
           {jobDetails.website.slice(20) + ".com"}
         </p>
-        <a href={jobDetails.website} className="company-info__link">
-          Company Site
-        </a>
+        <div className="company-info__link-container">
+          <a href={jobDetails.website} className="company-info__link">
+            Company Site
+          </a>
+        </div>
       </div>
     </>
   );

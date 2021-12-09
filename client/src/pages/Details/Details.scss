@@ -1,0 +1,11 @@
+@use "../../styles/variables.scss" as *;
+
+.details {
+  background-color: $light-grey;
+  position: relative;
+  padding: 0 1.5rem;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-start;
+  // align-items: stretch;
+}

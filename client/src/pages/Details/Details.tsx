@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { JobPosting } from "../../types/types";
 import axios from "axios";
 import { CompanyInfo } from "../../components/CompanyInfo/CompanyInfo";
+import "./Details.scss";
 
 export const Details = (): ReactElement => {
   const [jobDetails, setJobDetails] = useState<JobPosting>();
@@ -20,7 +21,7 @@ export const Details = (): ReactElement => {
   }
 
   return (
-    <>
+    <main className="details">
       <CompanyInfo jobDetails={jobDetails} />
       <p>{jobDetails.postedAt}</p>
       <p>{jobDetails.contract}</p>
@@ -43,6 +44,6 @@ export const Details = (): ReactElement => {
         })}
       </ul>
       <a href={jobDetails.website + "/apply"}>Apply Now</a>
-    </>
+    </main>
   );
 };
