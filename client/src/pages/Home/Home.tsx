@@ -48,6 +48,7 @@ export const Home = (): ReactElement => {
               onClick={() => {
                 setSearchModal(true);
               }}
+              className="home__modal-button"
             >
               <img
                 src="http://localhost:8080/assets/icons/icon-filter.svg"
