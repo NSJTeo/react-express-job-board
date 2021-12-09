@@ -1,8 +1,8 @@
 import React, { ReactElement, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { JobPosting } from "../types/types";
+import { JobPosting } from "../../types/types";
 import axios from "axios";
-import { CompanyInfo } from "../components/CompanyInfo/CompanyInfo";
+import { CompanyInfo } from "../../components/CompanyInfo/CompanyInfo";
 
 export const Details = (): ReactElement => {
   const [jobDetails, setJobDetails] = useState<JobPosting>();
