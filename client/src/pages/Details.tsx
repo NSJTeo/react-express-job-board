@@ -1,8 +1,8 @@
 import { ReactElement, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { JobPosting } from "../../types/types";
+import { JobPosting } from "../types/types";
 import axios from "axios";
-import { CompanyInfo } from "../../components/CompanyInfo";
+import { CompanyInfo } from "../components/CompanyInfo";
 import styled from "styled-components";
 
 const DetailsContainer = styled.main`
