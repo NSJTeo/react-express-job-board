@@ -40,6 +40,21 @@ const GlobalStyles = createGlobalStyle`
       cursor: pointer;
     }
   }
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 3px;
+    background-color: #efefef;
+    margin-right: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
+    &:checked {
+      background-color: red;
+    }
+  }
 `;
 
 export default GlobalStyles;
