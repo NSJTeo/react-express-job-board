@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { JobPosting } from "../../types/types";
+import { JobPosting } from "../types/types";
 
 interface Props {
   jobPosting: JobPosting;

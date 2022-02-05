@@ -1,4 +1,4 @@
-import { JobPosting } from "../../types/types";
+import { JobPosting } from "../types/types";
 import styled from "styled-components";
 
 interface Props {
