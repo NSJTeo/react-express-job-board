@@ -1,9 +1,95 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import axios from "axios";
 import { JobPosting } from "../../types/types";
 import { JobListItem } from "../../components/JobListItem/JobListItem";
 import "./Home.scss";
 import { SearchModal } from "../../components/SearchModal/SearchModal";
+import styled from "styled-components";
+
+const HomeContainer = styled.main`
+  background-color: $light-grey;
+  position: relative;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+`;
+
+const FilterContainer = styled.div`
+  height: 5rem;
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  top: -2.5rem;
+  right: 1.5rem;
+  left: 1.5rem;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  width: auto;
+  z-index: 1;
+`;
+
+const Form = styled.form`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
+
+const TitleInput = styled.input`
+  border: none;
+  flex-grow: 1;
+  &:focus {
+    outline: none;
+  }
+`;
+
+const FilterButtonIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ModalButton = styled.button`
+  background: none;
+  border: none;
+`;
+
+const SearchButton = styled.button`
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1.5rem;
+  border: none;
+  background-color: #5964e0;
+  border-radius: 5px;
+`;
+
+const SearchIcon = styled.img`
+  width: 1.75rem;
+`;
+
+const JobList = styled.ul`
+  background-color: var(--light-grey, gray);
+  padding-top: 2.9375rem;
+`;
+
+const LoadMoreButton = styled.button`
+  width: 8.8125rem;
+  height: 3rem;
+  margin-top: 2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #5964e0;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 3.875rem;
+  align-self: center;
+`;
 
 export const Home = (): ReactElement => {
   const [jobPostings, setJobPostings] = useState<JobPosting[]>([]);
@@ -33,48 +119,40 @@ export const Home = (): ReactElement => {
   listings = listings.slice(0, jobPostingsAmount);
 
   return (
-    <main className="home">
+    <HomeContainer>
       {searchModal ? <SearchModal setSearchModal={setSearchModal} /> : null}
-      <div className="home__filter-container">
-        <form className="home__form" onSubmit={(e) => handleSubmit(e)}>
-          <input
-            placeholder="Filter by title..."
-            className="home__title-input"
-            name="title"
-          />
-          <div className="home__filter-icon-button-container">
-            <button
+      <FilterContainer>
+        <Form onSubmit={(e) => handleSubmit(e)}>
+          <TitleInput placeholder="Filter by title..." name="title" />
+          <FilterButtonIconContainer>
+            <ModalButton
               type="button"
               onClick={() => {
                 setSearchModal(true);
               }}
-              className="home__modal-button"
             >
               <img
                 src="http://localhost:8080/assets/icons/icon-filter.svg"
                 alt=""
               />
-            </button>
-            <button type="submit" className="home__search-button">
-              <img
+            </ModalButton>
+            <SearchButton type="submit" className="home__search-button">
+              <SearchIcon
                 src="http://localhost:8080/assets/icons/icon-search-mobile.svg"
                 alt=""
-                className="home__search-icon"
               />
-            </button>
-          </div>
-        </form>
-      </div>
-      <ul className="home__job-list">
+            </SearchButton>
+          </FilterButtonIconContainer>
+        </Form>
+      </FilterContainer>
+      <JobList>
         {listings.map((jobPosting) => {
           return <JobListItem key={jobPosting.id} jobPosting={jobPosting} />;
         })}
-      </ul>
+      </JobList>
       {hiddenPostings ? (
-        <button className="home__load-more-button" onClick={handleClick}>
-          Load More
-        </button>
+        <LoadMoreButton onClick={handleClick}>Load More</LoadMoreButton>
       ) : null}
-    </main>
+    </HomeContainer>
   );
 };
