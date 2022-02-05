@@ -1,6 +1,4 @@
-import React from "react";
 import { JobPosting } from "../../types/types";
-import "./CompanyInfo.scss";
 import styled from "styled-components";
 
 interface Props {
