@@ -2,7 +2,6 @@ import { ReactElement, useEffect, useState } from "react";
 import axios from "axios";
 import { JobPosting } from "../types/types";
 import { JobListItem } from "../components/JobListItem";
-import "./Home.scss";
 import { SearchModal } from "../components/SearchModal";
 import styled from "styled-components";
 

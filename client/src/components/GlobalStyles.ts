@@ -3,16 +3,16 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: "KumbhSans";
-    src: url("./assets/fonts/KumbhSans-Regular.woff2") format("woff2"),
-      url("./assets/fonts/KumbhSans-Regular.woff") format("woff");
+    src: url("fonts/KumbhSans-Regular.woff2") format("woff2"),
+      url("fonts/KumbhSans-Regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "KumbhSans";
-    src: url("./assets/fonts/KumbhSans-Bold.woff2") format("woff2"),
-      url("./assets/fonts/KumbhSans-Bold.woff") format("woff");
+    src: url("fonts/KumbhSans-Bold.woff2") format("woff2"),
+      url("fonts/KumbhSans-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
   }
