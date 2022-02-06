@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 interface Props {
   setDarkMode: Function;
@@ -46,7 +47,9 @@ export const PageHeader = ({ setDarkMode }: Props) => {
 
   return (
     <Header>
-      <img src="http://localhost:8080/assets/logos/logo.svg" alt="" />
+      <Link to="/">
+        <img src="http://localhost:8080/assets/logos/logo.svg" alt="" />
+      </Link>
       <ModeSelectContainer>
         <img src="http://localhost:8080/assets/icons/icon-sun.svg" alt="" />
         <ModeSelect onClick={handleClick}>

@@ -99,6 +99,7 @@ export const JobListItem = ({ jobPosting }: Props): ReactElement => {
             <TimeContractDot>&bull;</TimeContractDot>
             <p>{jobPosting.contract}</p>
           </TimeContractContainer>
+          {/* Google: styled-components react router Links */}
           <Link to={`/job/` + jobPosting.id}>
             <Position>{jobPosting.position}</Position>
           </Link>
