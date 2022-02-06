@@ -29,4 +29,5 @@ export type Theme = {
   infoBackground: String;
   button: String;
   textColor: String;
+  filterIconFill: String;
 };
