@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-interface Props {}
+interface Props {
+  setDarkMode: Function;
+}
 
 const Header = styled.header`
   background-image: url("http://localhost:8080/assets/images/bg-pattern-header.svg");
@@ -27,6 +29,7 @@ const ModeSelect = styled.button`
   align-items: center;
   padding: 5px;
   border: none;
+  justify-content: ${({ theme }) => theme.button};
 `;
 
 const ModeSelectButton = styled.div`
@@ -36,13 +39,17 @@ const ModeSelectButton = styled.div`
   background-color: #5964e0;
 `;
 
-export const PageHeader = (props: Props) => {
+export const PageHeader = ({ setDarkMode }: Props) => {
+  const handleClick = () => {
+    setDarkMode((prevState: Boolean) => !prevState);
+  };
+
   return (
     <Header>
       <img src="http://localhost:8080/assets/logos/logo.svg" alt="" />
       <ModeSelectContainer>
         <img src="http://localhost:8080/assets/icons/icon-sun.svg" alt="" />
-        <ModeSelect>
+        <ModeSelect onClick={handleClick}>
           <ModeSelectButton />
         </ModeSelect>
         <img src="http://localhost:8080/assets/icons/icon-moon.svg" alt="" />
