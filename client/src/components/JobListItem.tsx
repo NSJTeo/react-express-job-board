@@ -72,6 +72,12 @@ const Location = styled.p`
   font-weight: bold;
 `;
 
+const Position = styled.p`
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #19202d;
+`;
+
 export const JobListItem = ({ jobPosting }: Props): ReactElement => {
   return (
     <Container>
@@ -93,11 +99,8 @@ export const JobListItem = ({ jobPosting }: Props): ReactElement => {
             <TimeContractDot>&bull;</TimeContractDot>
             <p>{jobPosting.contract}</p>
           </TimeContractContainer>
-          <Link
-            to={`/job/` + jobPosting.id}
-            className="job-list-item__position"
-          >
-            {jobPosting.position}
+          <Link to={`/job/` + jobPosting.id}>
+            <Position>{jobPosting.position}</Position>
           </Link>
         </JobInfoContainer>
         <div>

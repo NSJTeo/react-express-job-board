@@ -42,7 +42,7 @@ export const PageHeader = (props: Props) => {
       <img src="http://localhost:8080/assets/logos/logo.svg" alt="" />
       <ModeSelectContainer>
         <img src="http://localhost:8080/assets/icons/icon-sun.svg" alt="" />
-        <ModeSelect className="page-header__mode-select">
+        <ModeSelect>
           <ModeSelectButton />
         </ModeSelect>
         <img src="http://localhost:8080/assets/icons/icon-moon.svg" alt="" />

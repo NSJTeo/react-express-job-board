@@ -6,7 +6,7 @@ import { SearchModal } from "../components/SearchModal";
 import styled from "styled-components";
 
 const HomeContainer = styled.main`
-  background-color: $light-grey;
+  background-color: var(--light-grey);
   position: relative;
   padding: 0 1.5rem;
   display: flex;
@@ -39,6 +39,7 @@ const Form = styled.form`
 `;
 
 const TitleInput = styled.input`
+  font-size: 1rem;
   border: none;
   flex-grow: 1;
   &:focus {
@@ -78,6 +79,7 @@ const JobList = styled.ul`
 `;
 
 const LoadMoreButton = styled.button`
+  font-size: 1rem;
   width: 8.8125rem;
   height: 3rem;
   margin-top: 2rem;
@@ -135,7 +137,7 @@ export const Home = (): ReactElement => {
                 alt=""
               />
             </ModalButton>
-            <SearchButton type="submit" className="home__search-button">
+            <SearchButton type="submit">
               <SearchIcon
                 src="http://localhost:8080/assets/icons/icon-search-mobile.svg"
                 alt=""
