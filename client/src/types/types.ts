@@ -23,3 +23,10 @@ export type JobPosting = {
   requirements: Requirements;
   role: Role;
 };
+
+export type Theme = {
+  background: String;
+  infoBackground: String;
+  button: String;
+  textColor: String;
+};

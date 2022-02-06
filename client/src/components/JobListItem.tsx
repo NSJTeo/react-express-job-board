@@ -38,7 +38,7 @@ const LogoContainer = styled.div<LogoContainerProps>`
 `;
 
 const InfoContainer = styled.div`
-  background-color: white;
+  background-color: ${({ theme }) => theme.infoBackground};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -75,7 +75,7 @@ const Location = styled.p`
 const Position = styled.p`
   font-size: 1.25rem;
   font-weight: bold;
-  color: #19202d;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const JobListItem = ({ jobPosting }: Props): ReactElement => {

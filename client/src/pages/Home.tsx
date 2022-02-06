@@ -6,7 +6,7 @@ import { SearchModal } from "../components/SearchModal";
 import styled from "styled-components";
 
 const HomeContainer = styled.main`
-  background-color: var(--light-grey);
+  background-color: ${({ theme }) => theme.background};
   position: relative;
   padding: 0 1.5rem;
   display: flex;
@@ -30,6 +30,7 @@ const FilterContainer = styled.div`
   padding-left: 1.5rem;
   width: auto;
   z-index: 1;
+  background: ${({ theme }) => theme.infoBackground};
 `;
 
 const Form = styled.form`
@@ -42,6 +43,7 @@ const TitleInput = styled.input`
   font-size: 1rem;
   border: none;
   flex-grow: 1;
+  background: ${({ theme }) => theme.infoBackground};
   &:focus {
     outline: none;
   }
@@ -74,7 +76,7 @@ const SearchIcon = styled.img`
 `;
 
 const JobList = styled.ul`
-  background-color: var(--light-grey, gray);
+  background-color: ${({ theme }) => theme.background};
   padding-top: 2.9375rem;
 `;
 

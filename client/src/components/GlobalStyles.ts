@@ -26,6 +26,8 @@ const GlobalStyles = createGlobalStyle`
     --dark-grey: #6e8098;
     --light-gray: var(--light-grey);
     --dark-gray: var(--dark-grey);
+    --near-black: #19202D;
+
   }
 
   *,
