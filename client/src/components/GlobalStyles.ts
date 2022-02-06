@@ -1,18 +1,22 @@
 import { createGlobalStyle } from "styled-components";
+import KumbhSansRegularWoff2 from "../assets/fonts/KumbhSans-Regular.woff2";
+import KumbhSansRegularWoff from "../assets/fonts/KumbhSans-Regular.woff";
+import KumbhSansBoldWoff2 from "../assets/fonts/KumbhSans-Bold.woff2";
+import KumbhSansBoldWoff from "../assets/fonts/KumbhSans-Bold.woff";
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: "KumbhSans";
-    src: url("fonts/KumbhSans-Regular.woff2") format("woff2"),
-      url("fonts/KumbhSans-Regular.woff") format("woff");
+    src: url(${KumbhSansRegularWoff2}) format("woff2"),
+      url(${KumbhSansRegularWoff}) format("woff");
     font-weight: 400;
     font-style: normal;
   }
 
   @font-face {
     font-family: "KumbhSans";
-    src: url("fonts/KumbhSans-Bold.woff2") format("woff2"),
-      url("fonts/KumbhSans-Bold.woff") format("woff");
+    src: url(${KumbhSansBoldWoff2}) format("woff2"),
+      url(${KumbhSansBoldWoff}) format("woff");
     font-weight: bold;
     font-style: normal;
   }
