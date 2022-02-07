@@ -44,14 +44,12 @@ const Form = styled.form`
   width: 100%;
   height: 100%;
   @media (min-width: ${breakpoints.tablet}) {
-    display: flex;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
 const TitleInputContainer = styled.div`
-  flex-grow: 1;
-  flex-basis: 0;
   @media (min-width: ${breakpoints.tablet}) {
     display: flex;
     align-items: flex-start;
@@ -137,23 +135,20 @@ const LocationFilterContainer = styled.div`
   display: none;
   border-left: 1px solid rgba(110, 128, 152, 0.2);
   border-right: 1px solid rgba(110, 128, 152, 0.2);
-  flex-grow: 1;
-  flex-basis: 0;
   @media (min-width: ${breakpoints.tablet}) {
     display: flex;
     align-items: flex-start;
     padding: 1.75rem 1.5rem;
+    justify-content: center;
   }
 `;
 
 const FullTimeSearchContainer = styled.div`
   display: none;
-  flex-grow: 1;
-  flex-basis: 0;
-  padding-left: 1.25rem;
+  padding: 0 1.25rem;
   @media (min-width: ${breakpoints.tablet}) {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
   }
 `;
@@ -164,6 +159,7 @@ const LocationIcon = styled.img`
 
 const TabletSearchButton = styled(Button)`
   width: 5rem;
+  margin: 0;
 `;
 
 export const Home = (): ReactElement => {

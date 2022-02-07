@@ -54,6 +54,7 @@ export const FullTimeCheckbox = styled.label`
   display: flex;
   align-items: flex-start;
   font-weight: bold;
+  width: max-content;
   color: ${({ theme }) => theme.modalText};
 
   input[type="checkbox"] {
