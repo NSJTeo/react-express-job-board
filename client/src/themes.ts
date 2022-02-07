@@ -18,3 +18,8 @@ export const darkTheme: Theme = {
   modalText: "white",
   checkboxColor: "rgba(255, 255, 255, 0.1)",
 };
+
+export const breakpoints = {
+  tablet: "48rem",
+  desktop: "90rem",
+};

@@ -50,7 +50,7 @@ const ButtonFullTimeCheckboxContainer = styled.div`
   padding: 1.5rem;
 `;
 
-const FullTimeCheckbox = styled.label`
+export const FullTimeCheckbox = styled.label`
   display: flex;
   align-items: flex-start;
   font-weight: bold;
@@ -72,7 +72,7 @@ const FullTimeCheckbox = styled.label`
   }
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   background-color: #5964e0;
   color: white;
   font-weight: bold;
@@ -103,7 +103,7 @@ export const SearchModal = ({ setSearchModal }: Props) => {
             <input type="checkbox" name="contract" />
             Full Time Only
           </FullTimeCheckbox>
-          <Button className="search-modal__button">Search</Button>
+          <Button>Search</Button>
         </ButtonFullTimeCheckboxContainer>
       </Form>
     </Background>

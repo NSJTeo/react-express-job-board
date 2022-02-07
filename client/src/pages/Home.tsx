@@ -4,6 +4,8 @@ import { JobPosting } from "../types/types";
 import { JobListItem } from "../components/JobListItem";
 import { SearchModal } from "../components/SearchModal";
 import styled from "styled-components";
+import { breakpoints } from "../themes";
+import { FullTimeCheckbox, Button } from "../components/SearchModal";
 
 const HomeContainer = styled.main`
   background-color: ${({ theme }) => theme.background};
@@ -31,27 +33,47 @@ const FilterContainer = styled.div`
   width: auto;
   z-index: 1;
   background: ${({ theme }) => theme.infoBackground};
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 0;
+  }
 `;
 
 const Form = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100%;
+  @media (min-width: ${breakpoints.tablet}) {
+    display: flex;
+    align-items: stretch;
+  }
 `;
 
-const TitleInput = styled.input`
+const TitleInputContainer = styled.div`
+  flex-grow: 1;
+  flex-basis: 0;
+  @media (min-width: ${breakpoints.tablet}) {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.75rem 1.5rem;
+  }
+`;
+
+const Input = styled.input`
   font-size: 1rem;
   border: none;
-  flex-grow: 1;
   background: ${({ theme }) => theme.infoBackground};
   &:focus {
     outline: none;
   }
 `;
 
-const FilterButtonIconContainer = styled.div`
+const ModalButtonSearchContainer = styled.div`
   display: flex;
   align-items: center;
+  @media (min-width: ${breakpoints.tablet}) {
+    display: none;
+  }
 `;
 
 const ModalButton = styled.button`
@@ -72,12 +94,25 @@ const SearchButton = styled.button`
 `;
 
 const SearchIcon = styled.img`
-  width: 1.75rem;
+  width: 1.5rem;
+`;
+
+const TabletSearchIcon = styled(SearchIcon)`
+  display: none;
+  margin-right: 1rem;
+  @media (min-width: ${breakpoints.tablet}) {
+    display: inline;
+  }
 `;
 
 const JobList = styled.ul`
   background-color: ${({ theme }) => theme.background};
   padding-top: 2.9375rem;
+  @media (min-width: ${breakpoints.tablet}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 11px;
+  }
 `;
 
 const LoadMoreButton = styled.button`
@@ -94,8 +129,41 @@ const LoadMoreButton = styled.button`
   align-self: center;
 `;
 
-const FilterIcon = styled.path`
+const ModalIcon = styled.path`
   fill: ${({ theme }) => theme.filterIconFill};
+`;
+
+const LocationFilterContainer = styled.div`
+  display: none;
+  border-left: 1px solid rgba(110, 128, 152, 0.2);
+  border-right: 1px solid rgba(110, 128, 152, 0.2);
+  flex-grow: 1;
+  flex-basis: 0;
+  @media (min-width: ${breakpoints.tablet}) {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.75rem 1.5rem;
+  }
+`;
+
+const FullTimeSearchContainer = styled.div`
+  display: none;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding-left: 1.25rem;
+  @media (min-width: ${breakpoints.tablet}) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+`;
+
+const LocationIcon = styled.img`
+  margin-right: 1rem;
+`;
+
+const TabletSearchButton = styled(Button)`
+  width: 5rem;
 `;
 
 export const Home = (): ReactElement => {
@@ -130,8 +198,28 @@ export const Home = (): ReactElement => {
       {searchModal ? <SearchModal setSearchModal={setSearchModal} /> : null}
       <FilterContainer>
         <Form onSubmit={(e) => handleSubmit(e)}>
-          <TitleInput placeholder="Filter by title..." name="title" />
-          <FilterButtonIconContainer>
+          <TitleInputContainer>
+            <TabletSearchIcon
+              src="http://localhost:8080/assets/icons/icon-search-tablet.svg"
+              alt=""
+            />
+            <Input placeholder="Filter by title..." name="title" />
+          </TitleInputContainer>
+          <LocationFilterContainer>
+            <LocationIcon
+              src="http://localhost:8080/assets/icons/icon-location.svg"
+              alt="location icon"
+            />
+            <Input placeholder="Filter by location..." name="location" />
+          </LocationFilterContainer>
+          <FullTimeSearchContainer>
+            <FullTimeCheckbox>
+              <input type="checkbox" name="contract" />
+              Full Time
+            </FullTimeCheckbox>
+            <TabletSearchButton>Search</TabletSearchButton>
+          </FullTimeSearchContainer>
+          <ModalButtonSearchContainer>
             <ModalButton
               type="button"
               onClick={() => {
@@ -139,7 +227,7 @@ export const Home = (): ReactElement => {
               }}
             >
               <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-                <FilterIcon
+                <ModalIcon
                   d="M19.108 0H.86a.86.86 0 00-.764.455.833.833 0 00.068.884l6.685 9.202.007.01c.242.32.374.708.375 1.107v7.502a.825.825 0 00.248.594.865.865 0 00.942.18l3.756-1.4c.337-.1.56-.41.56-.784v-6.092c0-.399.132-.787.375-1.108l.007-.009 6.685-9.202c.19-.26.217-.6.068-.884A.86.86 0 0019.108 0z"
                   fill-rule="nonzero"
                 />
@@ -151,7 +239,7 @@ export const Home = (): ReactElement => {
                 alt=""
               />
             </SearchButton>
-          </FilterButtonIconContainer>
+          </ModalButtonSearchContainer>
         </Form>
       </FilterContainer>
       <JobList>

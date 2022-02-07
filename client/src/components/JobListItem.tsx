@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { JobPosting } from "../types/types";
+import { breakpoints } from "../themes";
 
 interface Props {
   jobPosting: JobPosting;
@@ -13,6 +14,9 @@ interface LogoContainerProps {
 
 const Container = styled.li`
   margin-bottom: 1.5rem;
+  @media (min-width: ${breakpoints.tablet}) {
+    margin-bottom: 15px;
+  }
 `;
 
 const BannerContainer = styled.div`
