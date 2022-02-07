@@ -53,13 +53,15 @@ const LinkContainer = styled.div`
 
 const Link = styled.a`
   width: 100%;
-  background-color: #5964e0;
+  background-color: rgba(89, 100, 224, 0.1);
   height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
   border-radius: 5px;
+  color: #5964e0;
+  font-weight: bold;
 `;
 
 export const CompanyInfo = ({ jobDetails }: Props) => {
@@ -75,7 +77,7 @@ export const CompanyInfo = ({ jobDetails }: Props) => {
         </LogoContainer>
         <Name>{jobDetails.company}</Name>
         <Website>{jobDetails.website.slice(20) + ".com"}</Website>
-        <LinkContainer className="company-info__link-container">
+        <LinkContainer>
           <Link href={jobDetails.website}>Company Site</Link>
         </LinkContainer>
       </Container>
