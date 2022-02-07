@@ -27,7 +27,6 @@ const GlobalStyles = createGlobalStyle`
     --light-gray: var(--light-grey);
     --dark-gray: var(--dark-grey);
     --near-black: #19202D;
-
   }
 
   *,
@@ -44,21 +43,6 @@ const GlobalStyles = createGlobalStyle`
   button {
     &:hover {
       cursor: pointer;
-    }
-  }
-
-  input[type="checkbox"] {
-    appearance: none;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 3px;
-    background-color: #efefef;
-    margin-right: 1rem;
-    &:hover {
-      cursor: pointer;
-    }
-    &:checked {
-      background-color: red;
     }
   }
 `;

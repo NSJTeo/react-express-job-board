@@ -25,9 +25,11 @@ export type JobPosting = {
 };
 
 export type Theme = {
-  background: String;
-  infoBackground: String;
-  button: String;
-  textColor: String;
-  filterIconFill: String;
+  background: string;
+  infoBackground: string;
+  button: string;
+  textColor: string;
+  filterIconFill: string;
+  modalText: string;
+  checkboxColor: string;
 };

@@ -21,7 +21,6 @@ const BannerContainer = styled.div`
 
 const Banner = styled.div`
   height: 25px;
-  background-color: var(--light-grey, grey);
 `;
 
 const LogoContainer = styled.div<LogoContainerProps>`
@@ -54,7 +53,7 @@ const JobInfoContainer = styled.div`
 const TimeContractContainer = styled.div`
   display: flex;
   margin-bottom: 1rem;
-  color: var(--dark-grey, gray);
+  color: var(--dark-grey);
 `;
 
 const TimeContractDot = styled.div`
@@ -72,7 +71,7 @@ const Location = styled.p`
   font-weight: bold;
 `;
 
-const Position = styled.p`
+const Position = styled(Link)`
   font-size: 1.25rem;
   font-weight: bold;
   color: ${({ theme }) => theme.textColor};
@@ -99,10 +98,9 @@ export const JobListItem = ({ jobPosting }: Props): ReactElement => {
             <TimeContractDot>&bull;</TimeContractDot>
             <p>{jobPosting.contract}</p>
           </TimeContractContainer>
-          {/* Google: styled-components react router Links */}
-          <Link to={`/job/` + jobPosting.id}>
-            <Position>{jobPosting.position}</Position>
-          </Link>
+          <Position to={`/job/` + jobPosting.id}>
+            {jobPosting.position}
+          </Position>
         </JobInfoContainer>
         <div>
           <Company className="job-list-item__company">

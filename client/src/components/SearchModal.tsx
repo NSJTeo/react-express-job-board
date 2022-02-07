@@ -8,7 +8,7 @@ const Background = styled.div`
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: rgba($color: #000000, $alpha: 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   z-index: 3;
@@ -19,13 +19,13 @@ const Background = styled.div`
 
 const Form = styled.form`
   margin: 1.5rem;
-  background-color: white;
+  background-color: ${({ theme }) => theme.infoBackground};
   width: 100%;
   border-radius: 6px;
 `;
 
 const LocationFilterContainer = styled.div`
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(110, 128, 152, 0.2);
   display: flex;
   align-items: center;
   padding: 0 1.5rem;
@@ -39,6 +39,8 @@ const LocationFilterIcon = styled.img`
 const LocationFilterInput = styled.input`
   border: none;
   flex-grow: 1;
+  font-size: 1rem;
+  background-color: ${({ theme }) => theme.infoBackground};
   &:focus {
     outline: none;
   }
@@ -52,6 +54,22 @@ const FullTimeCheckbox = styled.label`
   display: flex;
   align-items: flex-start;
   font-weight: bold;
+  color: ${({ theme }) => theme.modalText};
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 3px;
+    background-color: ${({ theme }) => theme.checkboxColor};
+    margin-right: 1rem;
+    &:hover {
+      cursor: pointer;
+    }
+    &:checked {
+      background-color: #5964e0;
+    }
+  }
 `;
 
 const Button = styled.button`
