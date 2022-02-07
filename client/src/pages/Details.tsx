@@ -70,10 +70,10 @@ const RequirementsTitle = styled.h2`
   color: ${({ theme }) => theme.textColor};
 `;
 
-const Requirements = styled.p`
+const Copy = styled.p`
   color: #6e8098;
   line-height: 1.625rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 `;
 
 const RequirementsList = styled.ul`
@@ -99,12 +99,6 @@ const JobRoleTitle = styled.h2`
   color: ${({ theme }) => theme.textColor};
 `;
 
-const JobRoleDescription = styled.p`
-  line-height: 1.625rem;
-  margin-bottom: 2rem;
-  color: #6e8098;
-`;
-
 const JobRole = styled.li`
   color: #6e8098;
   line-height: 1.625rem;
@@ -128,6 +122,7 @@ const ApplyNowButtonBottom = styled(ApplyNowLink)`
 
 const DateContract = styled.p`
   color: #6e8098;
+  line-height: 1.25rem;
 `;
 
 export const Details = (): ReactElement => {
@@ -162,14 +157,14 @@ export const Details = (): ReactElement => {
           </ApplyNowLink>
           <Description>{jobDetails.description}</Description>
           <RequirementsTitle>Requirements</RequirementsTitle>
-          <Requirements>{jobDetails.requirements.content}</Requirements>
+          <Copy>{jobDetails.requirements.content}</Copy>
           <RequirementsList>
             {jobDetails.requirements.items.map((item) => {
               return <Requirement>{item}</Requirement>;
             })}
           </RequirementsList>
           <JobRoleTitle>What You Will Do</JobRoleTitle>
-          <JobRoleDescription>{jobDetails.role.content}</JobRoleDescription>
+          <Copy>{jobDetails.role.content}</Copy>
           <ol>
             {jobDetails.role.items.map((item) => {
               return <JobRole>{item}</JobRole>;
