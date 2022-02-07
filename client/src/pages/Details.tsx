@@ -6,7 +6,7 @@ import { CompanyInfo } from "../components/CompanyInfo";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-  background-color: var(--light-grey);
+  background-color: ${({ theme }) => theme.infoBackground};
   position: relative;
   padding: 0 1.5rem;
   padding-bottom: 4rem;
@@ -14,7 +14,7 @@ const MainContainer = styled.div`
 
 const JobInfoContainer = styled.div`
   border-radius: 6px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.background};
   padding: 2.5rem 1.5rem;
 `;
 
@@ -35,6 +35,7 @@ const DateContractDot = styled.div`
 const Position = styled.h1`
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 const Location = styled.p`
@@ -66,6 +67,7 @@ const Description = styled.p`
 const RequirementsTitle = styled.h2`
   font-size: 1.25rem;
   margin-bottom: 1.75rem;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 const Requirements = styled.p`
@@ -94,6 +96,7 @@ const JobRoleTitle = styled.h2`
   font-size: 1.25rem;
   line-height: 24.8px;
   margin-bottom: 1.75rem;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 const JobRoleDescription = styled.p`
@@ -115,12 +118,16 @@ const JobRole = styled.li`
 `;
 
 const ApplyNowButtonContainer = styled.div`
-  background-color: white;
   padding: 1.5rem;
+  background-color: ${({ theme }) => theme.background};
 `;
 
 const ApplyNowButtonBottom = styled(ApplyNowLink)`
   margin-bottom: 0;
+`;
+
+const DateContract = styled.p`
+  color: #6e8098;
 `;
 
 export const Details = (): ReactElement => {
@@ -144,9 +151,9 @@ export const Details = (): ReactElement => {
         <CompanyInfo jobDetails={jobDetails} />
         <JobInfoContainer>
           <DateContractContainer>
-            <p>{jobDetails.postedAt}</p>
+            <DateContract>{jobDetails.postedAt}</DateContract>
             <DateContractDot />
-            <p>{jobDetails.contract}</p>
+            <DateContract>{jobDetails.contract}</DateContract>
           </DateContractContainer>
           <Position>{jobDetails.position}</Position>
           <Location>{jobDetails.location}</Location>

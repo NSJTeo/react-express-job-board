@@ -11,7 +11,7 @@ interface LogoContainerProps {
 }
 
 const Container = styled.div`
-  background-color: white;
+  background-color: ${({ theme }) => theme.background};
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -38,6 +38,7 @@ const Name = styled.p`
   margin-bottom: 0.8125rem;
   font-size: 1.25rem;
   font-weight: bold;
+  color: ${({ theme }) => theme.textColor};
 `;
 
 const Website = styled.p`
