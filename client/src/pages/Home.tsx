@@ -62,6 +62,7 @@ const Input = styled.input`
   font-size: 1rem;
   border: none;
   background: ${({ theme }) => theme.infoBackground};
+  width: 100%;
   &:focus {
     outline: none;
   }

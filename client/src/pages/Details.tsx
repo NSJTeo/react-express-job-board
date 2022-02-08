@@ -6,7 +6,7 @@ import { CompanyInfo } from "../components/CompanyInfo";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-  background-color: ${({ theme }) => theme.infoBackground};
+  background-color: ${({ theme }) => theme.background};
   position: relative;
   padding: 0 1.5rem;
   padding-bottom: 4rem;
@@ -14,7 +14,7 @@ const MainContainer = styled.div`
 
 const JobInfoContainer = styled.div`
   border-radius: 6px;
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.infoBackground};
   padding: 2.5rem 1.5rem;
 `;
 
