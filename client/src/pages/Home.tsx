@@ -14,10 +14,11 @@ const HomeContainer = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
 `;
 
 const FilterContainer = styled.div`
+  max-width: 69.375rem;
   height: 5rem;
   background-color: white;
   border-radius: 6px;
@@ -33,6 +34,7 @@ const FilterContainer = styled.div`
   width: auto;
   z-index: 1;
   background: ${({ theme }) => theme.infoBackground};
+  margin: 0 auto;
   @media (min-width: ${breakpoints.tablet}) {
     padding: 0;
   }
@@ -106,12 +108,19 @@ const TabletSearchIcon = styled(SearchIcon)`
 `;
 
 const JobList = styled.ul`
+  width: 100%;
+  max-width: 69.375rem;
   background-color: ${({ theme }) => theme.background};
   padding-top: 2.9375rem;
   @media (min-width: ${breakpoints.tablet}) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 11px;
+  }
+  @media (min-width: ${breakpoints.desktop}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1.875rem;
   }
 `;
 

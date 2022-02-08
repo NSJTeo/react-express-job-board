@@ -21,5 +21,5 @@ export const darkTheme: Theme = {
 
 export const breakpoints = {
   tablet: "48rem",
-  desktop: "90rem",
+  desktop: "72rem",
 };

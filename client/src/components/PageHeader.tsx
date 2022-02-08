@@ -10,18 +10,27 @@ const Header = styled.header`
   background-image: url("http://localhost:8080/assets/images/bg-pattern-header.svg");
   background-color: ${({ theme }) => theme.background};
   background-size: cover;
-  height: 8.5rem;
-  padding: 0 1.5rem;
-  padding-top: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   @media (min-width: ${breakpoints.tablet}) {
     background-image: url("http://localhost:8080/assets/images/bg-pattern-header-tablet.svg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0 50%;
   }
+  @media (min-width: ${breakpoints.desktop}) {
+    background-image: url("http://localhost:8080/assets/images/bg-pattern-header-desktop.svg");
+    background-position: 0 100%;
+  }
+`;
+
+const LogoModeContainer = styled.div`
+  max-width: 69.375rem;
+  height: 8.5rem;
+  padding: 0 1.5rem;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto;
 `;
 
 const ModeSelectContainer = styled.div`
@@ -56,16 +65,18 @@ export const PageHeader = ({ setDarkMode }: Props) => {
 
   return (
     <Header>
-      <Link to="/">
-        <img src="http://localhost:8080/assets/logos/logo.svg" alt="" />
-      </Link>
-      <ModeSelectContainer>
-        <img src="http://localhost:8080/assets/icons/icon-sun.svg" alt="" />
-        <ModeSelect onClick={handleClick}>
-          <ModeSelectButton />
-        </ModeSelect>
-        <img src="http://localhost:8080/assets/icons/icon-moon.svg" alt="" />
-      </ModeSelectContainer>
+      <LogoModeContainer>
+        <Link to="/">
+          <img src="http://localhost:8080/assets/logos/logo.svg" alt="" />
+        </Link>
+        <ModeSelectContainer>
+          <img src="http://localhost:8080/assets/icons/icon-sun.svg" alt="" />
+          <ModeSelect onClick={handleClick}>
+            <ModeSelectButton />
+          </ModeSelect>
+          <img src="http://localhost:8080/assets/icons/icon-moon.svg" alt="" />
+        </ModeSelectContainer>
+      </LogoModeContainer>
     </Header>
   );
 };
