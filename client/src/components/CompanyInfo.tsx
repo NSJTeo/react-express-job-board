@@ -12,6 +12,9 @@ interface LogoContainerProps {
 }
 
 const Container = styled.div`
+  max-width: 69.375rem;
+  margin-left: auto;
+  margin-right: auto;
   background-color: ${({ theme }) => theme.infoBackground};
   border-radius: 6px;
   display: flex;
@@ -110,22 +113,17 @@ const NameWebsiteContainer = styled.div`
 export const CompanyInfo = ({ jobDetails }: Props) => {
   const backgroundColor = jobDetails.logoBackground;
   return (
-    <>
-      <Container>
-        <LogoContainer backgroundColor={backgroundColor}>
-          <Logo
-            src={`http://localhost:8080` + jobDetails.logo.slice(1)}
-            alt=""
-          />
-        </LogoContainer>
-        <NameWebsiteContainer>
-          <Name>{jobDetails.company}</Name>
-          <Website>{jobDetails.website.slice(20) + ".com"}</Website>
-        </NameWebsiteContainer>
-        <LinkContainer>
-          <Link href={jobDetails.website}>Company Site</Link>
-        </LinkContainer>
-      </Container>
-    </>
+    <Container>
+      <LogoContainer backgroundColor={backgroundColor}>
+        <Logo src={`http://localhost:8080` + jobDetails.logo.slice(1)} alt="" />
+      </LogoContainer>
+      <NameWebsiteContainer>
+        <Name>{jobDetails.company}</Name>
+        <Website>{jobDetails.website.slice(20) + ".com"}</Website>
+      </NameWebsiteContainer>
+      <LinkContainer>
+        <Link href={jobDetails.website}>Company Site</Link>
+      </LinkContainer>
+    </Container>
   );
 };

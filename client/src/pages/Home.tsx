@@ -15,6 +15,9 @@ const HomeContainer = styled.main`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  @media (min-width: ${breakpoints.tablet}) {
+    padding: 0 2.5rem;
+  }
 `;
 
 const FilterContainer = styled.div`
@@ -37,6 +40,8 @@ const FilterContainer = styled.div`
   margin: 0 auto;
   @media (min-width: ${breakpoints.tablet}) {
     padding: 0;
+    left: 2.5rem;
+    right: 2.5rem;
   }
 `;
 
