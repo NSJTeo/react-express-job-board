@@ -48,6 +48,7 @@ const InfoContainer = styled.div`
   padding: 2rem;
   padding-top: 49px;
   border-radius: 6px;
+  height: 14.25rem;
 `;
 
 const JobInfoContainer = styled.div`
@@ -65,7 +66,6 @@ const TimeContractDot = styled.div`
 `;
 
 const Company = styled.p`
-  margin-bottom: 2.75rem;
   color: var(--dark-grey, grey);
 `;
 
@@ -79,6 +79,13 @@ const Position = styled(Link)`
   font-size: 1.25rem;
   font-weight: bold;
   color: ${({ theme }) => theme.textColor};
+`;
+
+const CompanyLocationContainer = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const JobListItem = ({ jobPosting }: Props): ReactElement => {
@@ -106,14 +113,10 @@ export const JobListItem = ({ jobPosting }: Props): ReactElement => {
             {jobPosting.position}
           </Position>
         </JobInfoContainer>
-        <div>
-          <Company className="job-list-item__company">
-            {jobPosting.company}
-          </Company>
-          <Location className="job-list-item__location">
-            {jobPosting.location}
-          </Location>
-        </div>
+        <CompanyLocationContainer>
+          <Company>{jobPosting.company}</Company>
+          <Location>{jobPosting.location}</Location>
+        </CompanyLocationContainer>
       </InfoContainer>
     </Container>
   );

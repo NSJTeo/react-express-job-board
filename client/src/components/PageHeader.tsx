@@ -12,7 +12,6 @@ const Header = styled.header`
   background-size: cover;
   @media (min-width: ${breakpoints.tablet}) {
     background-image: url("http://localhost:8080/assets/images/bg-pattern-header-tablet.svg");
-    background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0 50%;
   }
