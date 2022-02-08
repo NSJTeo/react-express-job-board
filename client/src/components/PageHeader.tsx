@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { breakpoints } from "../themes";
 
 interface Props {
   setDarkMode: Function;
@@ -7,12 +8,20 @@ interface Props {
 
 const Header = styled.header`
   background-image: url("http://localhost:8080/assets/images/bg-pattern-header.svg");
+  background-color: ${({ theme }) => theme.background};
+  background-size: cover;
   height: 8.5rem;
   padding: 0 1.5rem;
   padding-top: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  @media (min-width: ${breakpoints.tablet}) {
+    background-image: url("http://localhost:8080/assets/images/bg-pattern-header-tablet.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+  }
 `;
 
 const ModeSelectContainer = styled.div`

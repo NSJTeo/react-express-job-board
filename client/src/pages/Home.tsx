@@ -45,11 +45,12 @@ const Form = styled.form`
   height: 100%;
   @media (min-width: ${breakpoints.tablet}) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 `;
 
 const TitleInputContainer = styled.div`
+  flex-grow: 1;
   @media (min-width: ${breakpoints.tablet}) {
     display: flex;
     align-items: flex-start;
