@@ -31,6 +31,9 @@ const LogoModeContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin: 0 auto;
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 2rem 0 0 0;
+  }
 `;
 
 const ModeSelectContainer = styled.div`

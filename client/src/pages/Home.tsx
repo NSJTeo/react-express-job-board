@@ -49,6 +49,9 @@ const Form = styled.form`
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  @media (min-width: ${breakpoints.desktop}) {
+    display: flex;
+  }
 `;
 
 const TitleInputContainer = styled.div`
@@ -65,8 +68,22 @@ const Input = styled.input`
   border: none;
   background: ${({ theme }) => theme.infoBackground};
   width: 100%;
+  text-overflow: ellipsis;
   &:focus {
     outline: none;
+  }
+`;
+
+const TitleInput = styled(Input)`
+  @media (min-width: ${breakpoints.desktop}) {
+    display: none;
+  }
+`;
+
+const DesktopInput = styled(Input)`
+  display: none;
+  @media (min-width: ${breakpoints.desktop}) {
+    display: inline;
   }
 `;
 
@@ -152,6 +169,9 @@ const LocationFilterContainer = styled.div`
     padding: 1.75rem 1.5rem;
     justify-content: center;
   }
+  @media (min-width: ${breakpoints.desktop}) {
+    width: 300px;
+  }
 `;
 
 const FullTimeSearchContainer = styled.div`
@@ -162,6 +182,10 @@ const FullTimeSearchContainer = styled.div`
     align-items: center;
     justify-content: space-between;
   }
+  @media (min-width: ${breakpoints.desktop}) {
+    padding-left: 2rem;
+    padding-right: 1rem;
+  }
 `;
 
 const LocationIcon = styled.img`
@@ -171,6 +195,10 @@ const LocationIcon = styled.img`
 const TabletSearchButton = styled(Button)`
   width: 5rem;
   margin: 0;
+  @media (min-width: ${breakpoints.desktop}) {
+    margin-left: 1.625rem;
+    width: 123px;
+  }
 `;
 
 export const Home = (): ReactElement => {
@@ -210,7 +238,11 @@ export const Home = (): ReactElement => {
               src="http://localhost:8080/assets/icons/icon-search-tablet.svg"
               alt=""
             />
-            <Input placeholder="Filter by title..." name="title" />
+            <TitleInput placeholder="Filter by title..." name="title" />
+            <DesktopInput
+              placeholder="Filter by title, companies, expertise..."
+              name="title"
+            />
           </TitleInputContainer>
           <LocationFilterContainer>
             <LocationIcon
